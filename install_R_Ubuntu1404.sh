@@ -35,3 +35,4 @@ echo "GDebi installs the file that was downloaded."
 sudo gdebi shiny-server.deb 
 echo 
 echo "The shiny server is now running, listening on port 3838."
+
