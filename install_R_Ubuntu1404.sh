@@ -1,6 +1,6 @@
 #!/bin/bash
 echo “Script for installing the statistical computation application R on a 64-bit Ubuntu 14.04 operating system”
-echo “APT is the Advanced Packaging Tool that downloads the R package. To get the most recent version of R, the correct source has to be added to the list of sources.”
+echo “To get the most recent version of R, the correct source has to be added to the list of sources used by APT.”
 sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"' >> /etc/apt/sources.list
 echo
 echo “The Ubuntu archives on CRAN downloaded using APT are signed with a public key with ID E084DAB9. We’re adding this key our system.”
@@ -12,13 +12,10 @@ sudo apt-get update
 echo “Installing R”
 sudo apt-get -y install r-base
 echo “Downloading Shiny via R, for global users“
-sudo - -c "R -e \"install.packages('shiny', repos = 'http://cran.rstudio.com/')\””
+sudo su - -c "R -e \"install.packages('shiny', repos = 'http://cran.rstudio.com/')\””
 echo
 echo “To install R packages from GitHub, we need to use the devtools R package. The devtools R package requires three system packages"
 sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev
-echo
-echo “Install devtools R package for global users" 
-sudo - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
 echo
 echo "Installing packages: reshape, ggplot2, scales, Quandl"
 echo
@@ -26,7 +23,7 @@ sudo apt-get -y install r-cran-ggplot2
 sudo apt-get -y install r-cran-plyr
 sudo apt-get -y install r-cran-reshape
 sudo apt-get -y install r-cran-scales
-sudo - -c "R -e \"install.packages('Quandl', repos='http://cran.rstudio.com/')\””
+sudo su - -c "R -e \"install.packages('Quandl', repos='http://cran.rstudio.com/')\””
 echo
 echo "The GDebi tool is required to install the Shiny server" 
 sudo apt-get -y install gdebi-core 
