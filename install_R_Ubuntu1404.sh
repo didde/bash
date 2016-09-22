@@ -1,7 +1,7 @@
 #!/bin/bash
 echo “Script for installing the statistical computation application R on a 64-bit Ubuntu 14.04 operating system”
 echo “APT is the Advanced Packaging Tool that downloads the R package. To get the most recent version of R, the correct source has to be added to the list of sources.”
-sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"' >> /etc/apt/sources.list
 echo
 echo “The Ubuntu archives on CRAN downloaded using APT are signed with a public key with ID E084DAB9. We’re adding this key our system.”
 sudo gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
